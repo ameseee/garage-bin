@@ -31,3 +31,66 @@ describe('Client Routes', () => {
   });
 
 });
+
+describe('API Routes'), () => {
+
+    before((done) => {
+      database.migrate.latest()
+        .then(()=> done())
+        .catch((error) => {
+          throw error;
+        });
+    });
+
+    beforeEach((done) => {
+      database.seed.run()
+        .then(() => done())
+        .catch((error) => {
+          throw error;
+        });
+    });
+
+    describe('GET /api/v1/garageItems', () => {
+      it('should retrieve all of the garage items', () => {
+
+      });
+
+      it('should return a 404 if the path is incorrect', (done) => {
+
+      });
+
+    });
+
+    describe('POST /api/v1/garageItems', () => {
+      it('should be able to add an item to the garage database', (done) => {
+
+      });
+
+      it('should not create a project with missing data', (done) => {
+
+      });
+
+    });
+
+    describe('GET /api/v1/garageItems/:id', () => {
+      it('should retrieve a specific garage item', (done) => {
+
+      });
+
+      it('should return a 404 if path does not exist', (done) => {
+
+      });
+
+    });
+
+    describe('PATCH /api/v1/garageItems/:id', () => {
+      it('should be able to update the body of a garage item', (done) => {
+
+      });
+
+      it('shoul return a 404 if a garage item body is not provided', (done) => {
+
+      });
+
+    });
+}
