@@ -10,18 +10,22 @@
 
   <body>
     <main>
-      <section class="garage">
-        <button type="button" name="remote" class="remote">Open Garage</button>
-        <h2 class="items-title">Hoarded Items</h2>
-        <article class="items"></article>
-
-        <aside class="totals-info">
-          <h3>TOTALS INFO:</h3>
-          <p id="total-garage"></p>
-          <p id="total-sparkling">Sparkling Items:</p>
-          <p id="total-dusty">Dusty Items:</p>
-          <p id="total-rancid">Rancid Items:</p>
-        </aside>
+      <section class="left">
+        <section class="garage"></section>
+        <section id="all-info" class="hide-info">
+          <aside class="item-info">
+            <h2 class="items-title">Hoarded Items</h2>
+            <article class="items"></article>
+          </aside>
+          <button type="button" name="button" id="switch-list-order" class="alphabetize">Show Descending</button>
+          <aside class="totals-info">
+            <h3>TOTALS INFO:</h3>
+            <p id="total-garage"></p>
+            <p id="total-sparkling">Sparkling Items:</p>
+            <p id="total-dusty">Dusty Items:</p>
+            <p id="total-rancid">Rancid Items:</p>
+          </aside>
+        </section>
       </section>
 
       <aside class="form-container">
@@ -37,8 +41,8 @@
         <button type="button" name="button" id="new-submit">submit</button>
         </div>
       </aside>
-
     </main>
+    <button type="button" name="remote" class="remote">Open Garage</button>
     <script       src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
     </script>
     <script

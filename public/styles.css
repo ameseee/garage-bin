@@ -16,17 +16,42 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 7.5%;
+  padding-top: 90px;
   background-color: rgba(83, 49, 31, 0.5);
   height: 100vh;
 }
 
-.garage {
+.left {
   width: 60%;
+}
+
+.garage {
   background-image: url(/assets/garage-door.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 435px;
+  z-index: 2;
+}
+
+.all-info {
+}
+
+.hide-info {
+  display: none;
+}
+
+.item-info {
+  /* position: absolute;
+  top: 100px;
+  left: 65px;
+  z-index: 1; */
+}
+
+.totals-info {
+  /* position: absolute;
+  top: 425px;
+  left: 675px;
+  z-index: 1; */
 }
 
 .remote {
@@ -34,7 +59,7 @@ main {
   color: #fff;
   outline: none;
   border: none;
-   height: 30px;
+  height: 30px;
 }
 
 .items-title {
@@ -42,7 +67,7 @@ main {
 }
 
 .item {
-
+  outline: 1px solid red;
 }
 
 .form-container {
