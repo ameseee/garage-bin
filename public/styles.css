@@ -70,6 +70,10 @@ main {
   outline: 1px solid red;
 }
 
+/* .hidden {
+  display: none;
+} */
+
 .form-container {
   width: 25%;
 }

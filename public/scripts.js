@@ -42,13 +42,18 @@ const appendItems = (garageItems) => {
     $('.items').append(`
       <aside class="item">
         <h4 id="item-name">${garageItem.name}</h4>
+        <p id="item-reason" class="hidden">${garageItem.reason}</p>
+        <p id="item-cleanliness" class="hidden">${garageItem.cleanliness}</p>
+        <select id="update-cleanliness" name="cleanliness" class="hidden">
+          <option value="sparkling">sparkling</option>
+          <option value="dusty">dusty</option>
+          <option value="rancid">rancid</option>
+        </select>
+        <button type="button" name="button" id="update-submit" class="hidden">submit</button>
       </aside>
     `);
   });
 };
-
-{/* <p id="item-reason">${garageItem.reason}</p>
-<p id="item-cleanliness">${garageItem.cleanliness}</p> */}
 
 const countByCleanliness = (garageItems, level) => {
   const filtered = garageItems.filter(item => item.cleanliness === level);
@@ -109,35 +114,21 @@ const toggleListOrder = () => {
     $('#switch-list-order').text('Show Ascending');
     fetchDescendingItems();
   }
+};
 
+const toggleItemInfo = (event) => {
+  //console.log(event.target.siblings);
+  //$('#item-reason').toggleClass('hidden');
+};
+
+const updateItem = (event) => {
+  console.log(event.target.previousElementSibling);
 };
 
 $('div').on('click', 'button', addItem);
-
 $('.remote').on('click', toggleDoor);
 $('#switch-list-order').on('click', toggleListOrder);
+$('.items').on('click', '.item', () => toggleItemInfo(event));
+$('.items').on('click', '#update-submit', () => updateItem(event));
 
-//
-// const fetchItems = () => {
-//   fetch('/api/v1/garageItems')
-//   .then(response => response.json())
-//   .then(garageItems => {
-//     const frag = document.createDocumentFragment();
-//
-//     for (let i = 0; i < garageItems.length; i++) {
-//       let item = document.createElement('h4');
-//       item.innerHTML = i.name;
-//       frag.appendChild(item);
-//       console.log(frag.childNodes);
-//     }
-//     $('.items').appendChild(frag);
-    // garageItems.forEach(garageItem => {
-    //   let item = document.createElement('h4');
-    //   item.innerHTML = garageItem.name;
-    //   frag.appendChild(item);
-    //   console.log(frag.childNodes);
-    //   $('.items').appendChild(frag);
-    // })
-  //})
-//}
 fetchAscendingItems();
