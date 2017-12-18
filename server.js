@@ -22,6 +22,10 @@ app.set('port', process.env.PORT || 3000);
 
 app.locals.title = 'Garage Bin';
 
+app.get('/', (request, response) => {
+  response.send('Welcome to Garage Bin');
+});
+
 app.get('/api/v1/garageItems', (request, response) => {
   database('garageItems').select()
     .then((garageItems) => {
