@@ -52,13 +52,35 @@ app.post('/api/v1/garageItems', (request, response) => {
 
 app.get('/api/v1/garageItems/:id', (request, response) => {
   const { id } = request.params;
-  console.log(id);
 
   database('garageItems').where('id', id).select()
     .then((garageItem) => {
       return response.status(200).json(garageItem);
     })
     .catch((error) => response.status(500).json({ error }));
+});
+
+app.patch('/api/v1/garageItems/:id', (request, response) => {
+  const { id } = request.params;
+  const itemUpdate = request.body;
+
+  if (!itemUpdate) {
+    return response.status(422).json({
+      error: `You must send only an object.`
+    });
+  }
+
+  database('garageItems').where('id', id)
+    .update(itemUpdate, "*")
+    .then((update) => {
+      if (!update.length) {
+        return response.sendStatus(404);
+      }
+      return response.sendStatus(204);
+    })
+    .catch((error) => {
+      return response.status(500).json({ error });
+    });
 });
 
 app.listen(app.get('port'), () => {
