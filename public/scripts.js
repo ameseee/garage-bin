@@ -42,14 +42,16 @@ const appendItems = (garageItems) => {
     $('.items').append(`
       <aside class="item">
         <h4 id="item-name">${garageItem.name}</h4>
-        <p id="item-reason" class="hidden">${garageItem.reason}</p>
-        <p id="item-cleanliness" class="hidden">${garageItem.cleanliness}</p>
-        <select id="update-cleanliness" name="cleanliness" class="hidden">
-          <option value="sparkling">sparkling</option>
-          <option value="dusty">dusty</option>
-          <option value="rancid">rancid</option>
-        </select>
-        <button type="button" name="button" id="update-submit" class="hidden">submit</button>
+        <div class="hidden">
+          <p id="item-reason">${garageItem.reason}</p>
+          <p id="item-cleanliness">${garageItem.cleanliness}</p>
+          <select id="update-cleanliness" name="cleanliness">
+            <option value="sparkling">sparkling</option>
+            <option value="dusty">dusty</option>
+            <option value="rancid">rancid</option>
+          </select>
+          <button type="button" name="button" id="update-submit" >submit</button>
+        </div>
       </aside>
     `);
   });
@@ -117,8 +119,8 @@ const toggleListOrder = () => {
 };
 
 const toggleItemInfo = (event) => {
-  //console.log(event.target.siblings);
-  //$('#item-reason').toggleClass('hidden');
+  console.log($(event.target).next('div'));
+  $(event.target).next('div').toggleClass('hidden')
 };
 
 const updateItem = (event) => {
@@ -128,7 +130,7 @@ const updateItem = (event) => {
 $('div').on('click', 'button', addItem);
 $('.remote').on('click', toggleDoor);
 $('#switch-list-order').on('click', toggleListOrder);
-$('.items').on('click', '.item', () => toggleItemInfo(event));
+$('.items').on('click', 'h4', () => toggleItemInfo(event));
 $('.items').on('click', '#update-submit', () => updateItem(event));
 
 fetchAscendingItems();
