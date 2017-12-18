@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.garage {
+  outline: 1px solid red;
+  width: 70%;
+}
+
+.remote {
+
+}
+
+.items-title {
+
+}
+
+.item {
+
+}
+
+.form-container {
+  outline: 1px solid blue;
+  width: 30%;
+
+}
+
+.form-to-add {
+  display: flex;
+  flex-direction: column;
+}

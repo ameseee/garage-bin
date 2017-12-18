@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Holt's Garage Bin</title>
+  </head>
+
+  <body>
+    <main>
+      <section class="garage">
+        <button type="button" name="remote" class="remote">Open Garage</button>
+        <h2 class="items-title">Hoarded Items</h2>
+        <article class="item">
+          <h4 id="item-name">NAME</h4>
+          <p id="item-reason">REASON</p>
+          <p id="item-cleanliness">CLEANLINESS</p>
+        </article>
+
+        <aside class="totals-info">
+          <h3>TOTALS INFO:</h3>
+          <p id="total-garage">Items Hoarded:</p>
+          <p id="total-sparkling">Sparkling Items:</p>
+          <p id="total-dusty">Dusty Items:</p>
+          <p id="total-rancid">Rancid Items:</p>
+        </aside>
+      </section>
+
+      <aside class="form-container">
+        <h3>Need to hoard another item? Add it here:</h3>
+        <form class="form-to-add" action="index.html" method="post">
+          <input type="text" name="Name of Item" value="" placeholder="Item">
+          <input type="text" name="Reason Item is in Garage" value="" placeholder="Reason for hoarding">
+          <select class="new-item-menu" name="cleanliness">
+            <option value="sparkling">Sparkling</option>
+            <option value="dusty">Dusty</option>
+            <option value="rancid">Rancid</option>
+          </select>
+        </form>
+      </aside>
+
+    </main>
+  </body>
+</html>
