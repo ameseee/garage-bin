@@ -28,7 +28,6 @@ app.get('/api/v1/garageItems', (request, response) => {
       return response.status(200).json(garageItems);
     })
     .catch((error) => {
-      console.log('we are in the error');
       response.status(500).json({ error })
     });
 });
@@ -47,6 +46,17 @@ app.post('/api/v1/garageItems', (request, response) => {
   database('garageItems').insert(garageItem, 'id')
     .then(garageItemId => {
       return response.status(201).json({ id: garageItemId[0] });
+    })
+    .catch((error) => response.status(500).json({ error }));
+});
+
+app.get('/api/v1/garageItems/:id', (request, response) => {
+  const { id } = request.params;
+  console.log(id);
+
+  database('garageItems').where('id', id).select()
+    .then((garageItem) => {
+      return response.status(200).json(garageItem);
     })
     .catch((error) => response.status(500).json({ error }));
 });
