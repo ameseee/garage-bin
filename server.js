@@ -33,6 +33,24 @@ app.get('/api/v1/garageItems', (request, response) => {
     });
 });
 
+app.post('/api/v1/garageItems', (request, response) => {
+  const garageItem = request.body;
+
+  for (let requiredParameter of ['name', 'reason', 'cleanliness']) {
+    if (!garageItem[requiredParameter]) {
+      return response.status(422).json({
+        error: `You are missing the ${requiredParameter} property.`
+      });
+    }
+  }
+
+  database('garageItems').insert(garageItem, 'id')
+    .then(garageItemId => {
+      return response.status(201).json({ id: garageItemId[0] });
+    })
+    .catch((error) => response.status(500).json({ error }));
+});
+
 app.listen(app.get('port'), () => {
   // eslint-disable-next-line no-console
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
