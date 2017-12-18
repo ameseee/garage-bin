@@ -41,17 +41,9 @@ main {
 }
 
 .item-info {
-  /* position: absolute;
-  top: 100px;
-  left: 65px;
-  z-index: 1; */
 }
 
 .totals-info {
-  /* position: absolute;
-  top: 425px;
-  left: 675px;
-  z-index: 1; */
 }
 
 .remote {
@@ -67,11 +59,24 @@ main {
 }
 
 .item {
-  outline: 1px solid red;
+  background-color: #ECE8E6;
+  color: #1B1E40;
+  border-radius: 3px;
+  width: 60%;
+  padding: 10px;
 }
 
 .hidden {
   display: none;
+}
+
+#update-submit {
+  padding: 5px;
+  background-color: #363D80;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 2px;
 }
 
 .form-container {
@@ -92,6 +97,7 @@ main {
 #new-cleanliness {
   margin-bottom: 15px;
   height: 35px;
+  border-radius: 2px;
 }
 #new-name {
   margin-top: 15px;
@@ -111,6 +117,7 @@ main {
   outline: none;
   border: none;
   height: 30px;
+  border-radius: 2px;
 }
 
 #new-submit:hover {

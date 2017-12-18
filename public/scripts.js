@@ -119,12 +119,12 @@ const toggleListOrder = () => {
 };
 
 const toggleItemInfo = (event) => {
-  console.log($(event.target).next('div'));
   $(event.target).next('div').toggleClass('hidden')
 };
 
 const updateItem = (event) => {
-  console.log(event.target.previousElementSibling);
+
+  console.log($(event.target.previousElementSibling));
 };
 
 $('div').on('click', 'button', addItem);
