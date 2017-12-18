@@ -67,8 +67,8 @@ app.get('/api/v1/garageItems/:id', (request, response) => {
 app.patch('/api/v1/garageItems/:id', (request, response) => {
   const { id } = request.params;
   const itemUpdate = request.body;
-
-  if (!itemUpdate) {
+console.log(itemUpdate);
+  if (!itemUpdate.cleanliness) {
     return response.status(422).json({
       error: `You must send only an object.`
     });

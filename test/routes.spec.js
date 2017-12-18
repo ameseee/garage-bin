@@ -145,15 +145,32 @@ describe('API Routes', () => {
 
     });
 
-    // describe('PATCH /api/v1/garageItems/:id', () => {
-    //   it('should be able to update the body of a garage item', (done) => {
-    //
-    //   });
-    //
-    //   it('shoul return a 404 if a garage item body is not provided', (done) => {
-    //
-    //   });
-    //
-    // });
+    describe('PATCH /api/v1/garageItems/:id', () => {
+      it('should be able to update the body of a garage item', (done) => {
+        chai.request(server)
+          .patch('/api/v1/garageItems/1')
+          .send({ "cleanliness": "rancid" })
+          .end((error, response) => {
+            response.should.have.status(204);
+            chai.request(server)
+              .get('/api/v1/garageItems')
+              .end((error, response) => {
+                response.body.should.be.a('array');
+                done();
+              });
+          });
+      });
+
+      it('should return a 422 if a garage item cleanliness level is not provided', (done) => {
+        chai.request(server)
+          .patch('/api/v1/garageItems/1')
+          .send()
+          .end((error, response) => {
+            response.should.have.status(422);
+            done();
+          })
+      });
+
+    });
 
 });
