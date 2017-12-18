@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Holt's Garage Bin</title>
   </head>
@@ -12,15 +13,11 @@
       <section class="garage">
         <button type="button" name="remote" class="remote">Open Garage</button>
         <h2 class="items-title">Hoarded Items</h2>
-        <article class="item">
-          <h4 id="item-name">NAME</h4>
-          <p id="item-reason">REASON</p>
-          <p id="item-cleanliness">CLEANLINESS</p>
-        </article>
+        <article class="items"></article>
 
         <aside class="totals-info">
           <h3>TOTALS INFO:</h3>
-          <p id="total-garage">Items Hoarded:</p>
+          <p id="total-garage"></p>
           <p id="total-sparkling">Sparkling Items:</p>
           <p id="total-dusty">Dusty Items:</p>
           <p id="total-rancid">Rancid Items:</p>
@@ -28,18 +25,24 @@
       </section>
 
       <aside class="form-container">
-        <h3>Need to hoard another item? Add it here:</h3>
-        <form class="form-to-add" action="index.html" method="post">
-          <input type="text" name="Name of Item" value="" placeholder="Item">
-          <input type="text" name="Reason Item is in Garage" value="" placeholder="Reason for hoarding">
-          <select class="new-item-menu" name="cleanliness">
-            <option value="sparkling">Sparkling</option>
-            <option value="dusty">Dusty</option>
-            <option value="rancid">Rancid</option>
+        <h3 class="add-header">Need to hoard another item? Add it here:</h3>
+        <div class="form-to-add">
+          <input type="text" name="Name of Item" value="" placeholder="Item" id="new-name">
+          <input type="text" name="Reason Item is in Garage" value="" placeholder="Reason for hoarding" id="new-reason">
+          <select id="new-cleanliness" name="cleanliness">
+            <option value="sparkling">sparkling</option>
+            <option value="dusty">dusty</option>
+            <option value="rancid">rancid</option>
           </select>
-        </form>
+        <button type="button" name="button" id="new-submit">submit</button>
+        </div>
       </aside>
 
     </main>
+    <script       src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+    </script>
+    <script
+      type="text/javascript" src="scripts.js">
+    </script>
   </body>
 </html>

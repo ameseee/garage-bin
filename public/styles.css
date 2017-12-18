@@ -4,18 +4,37 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(/assets/brick-wall.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+}
+
 main {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding-top: 7.5%;
+  background-color: rgba(83, 49, 31, 0.5);
+  height: 100vh;
 }
 
 .garage {
-  outline: 1px solid red;
-  width: 70%;
+  width: 60%;
+  background-image: url(/assets/garage-door.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 435px;
 }
 
 .remote {
-
+  background-color: #363D80;
+  color: #fff;
+  outline: none;
+  border: none;
+   height: 30px;
 }
 
 .items-title {
@@ -27,12 +46,45 @@ main {
 }
 
 .form-container {
-  outline: 1px solid blue;
-  width: 30%;
+  width: 25%;
+}
 
+.add-header {
+  color: #fff;
 }
 
 .form-to-add {
   display: flex;
   flex-direction: column;
+}
+
+#new-name,
+#new-reason,
+#new-cleanliness {
+  margin-bottom: 15px;
+  height: 35px;
+}
+#new-name {
+  margin-top: 15px;
+}
+
+#new-reason {
+
+}
+
+#new-cleanliness {
+
+}
+
+#new-submit {
+  background-color: #363D80;
+  color: #fff;
+  outline: none;
+  border: none;
+  height: 30px;
+}
+
+#new-submit:hover {
+  cursor: pointer;
+    background-color: #A5B748;
 }
