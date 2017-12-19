@@ -45,12 +45,15 @@ const appendItems = (garageItems) => {
         <div class="hidden">
           <p id="item-reason">${garageItem.reason}</p>
           <p id="item-cleanliness">${garageItem.cleanliness}</p>
-          <select id="update-cleanliness" name="cleanliness">
-            <option value="sparkling">sparkling</option>
-            <option value="dusty">dusty</option>
-            <option value="rancid">rancid</option>
-          </select>
-          <button type="button" name="button" id="update-submit" >submit</button>
+          <div class="update-container">
+            <p>Change cleanliness to: </p>
+            <select id="update-cleanliness" name="cleanliness">
+              <option value="sparkling">sparkling</option>
+              <option value="dusty">dusty</option>
+              <option value="rancid">rancid</option>
+            </select>
+            <button type="button" name="button" id="update-submit" >submit</button>
+          </div>
         </div>
       </aside>
     `);

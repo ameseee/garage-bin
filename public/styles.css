@@ -65,6 +65,11 @@ main {
   margin-left: 5%;
 }
 
+.remote:hover {
+  cursor: pointer;
+  background-color: #A5B748;
+}
+
 .title-container {
   width: 60%;
   display: flex;
@@ -87,6 +92,11 @@ main {
   padding: 0 10px;
 }
 
+#switch-list-order:hover {
+  cursor: pointer;
+  background-color: #A5B748;
+}
+
 .item {
   background-color: #ECE8E6;
   color: #1B1E40;
@@ -100,15 +110,39 @@ main {
   display: none;
 }
 
+.update-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: space-between;
+}
+
 #update-submit {
-  padding: 5px;
   background-color: #363D80;
   color: #fff;
+  padding: 0 10px;
   outline: none;
   border: none;
   border-radius: 2px;
+  height: 20px;
 }
 
+#update-submit:hover {
+  cursor: pointer;
+  background-color: #A5B748;
+}
+
+#update-cleanliness {
+  height: 20px;
+}
+
+.totals-info {
+  background-color: #363D80;
+  border-radius: 3px;
+  padding: 10px;
+  width: 60%;
+}
 .form-container {
   width: 25%;
 }
@@ -127,6 +161,7 @@ main {
 #new-cleanliness {
   margin-bottom: 15px;
   height: 35px;
+  border: none;
   border-radius: 2px;
 }
 
@@ -153,5 +188,5 @@ main {
 
 #new-submit:hover {
   cursor: pointer;
-    background-color: #A5B748;
+  background-color: #A5B748;
 }
