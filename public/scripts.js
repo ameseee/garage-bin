@@ -104,6 +104,10 @@ const toggleDoor = () => {
   $('#all-info').hasClass('hide-info')
   ? $('#all-info').removeClass('hide-info')
   : $('#all-info').addClass('hide-info');
+
+  $('.remote').text('Open Garage')
+  ? $('.remote').text('Close Garage')
+  : $('.remote').text('Open Garage');
 };
 
 const toggleListOrder = () => {

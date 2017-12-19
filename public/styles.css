@@ -14,26 +14,34 @@ body {
 
 main {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   padding-top: 90px;
   background-color: rgba(83, 49, 31, 0.5);
   height: 100vh;
+  padding-bottom: 50px;
+}
+
+#main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5%;
 }
 
 .left {
-  width: 60%;
+  width: 70%;
 }
 
 .garage {
   background-image: url(/assets/garage-door.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 435px;
+  height: 420px;
   z-index: 2;
 }
 
 .all-info {
+  padding-top: 15px;
 }
 
 .hide-info {
@@ -52,10 +60,31 @@ main {
   outline: none;
   border: none;
   height: 30px;
+  padding: 0 10px;
+  width: 10%;
+  margin-left: 5%;
+}
+
+.title-container {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .items-title {
+  display: inline-block;
+}
 
+#switch-list-order {
+  background-color: #363D80;
+  color: #fff;
+  outline: none;
+  border: none;
+  height: 30px;
+  border-radius: 2px;
+  padding: 0 10px;
 }
 
 .item {
@@ -64,6 +93,7 @@ main {
   border-radius: 3px;
   width: 60%;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .hidden {
@@ -99,6 +129,7 @@ main {
   height: 35px;
   border-radius: 2px;
 }
+
 #new-name {
   margin-top: 15px;
 }
