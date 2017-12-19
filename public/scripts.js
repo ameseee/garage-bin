@@ -37,6 +37,7 @@ const unalphabetizeItems = (garageItems) => {
 };
 
 const updateItem = (id, newCleanliness) => {
+  console.log(id, newCleanliness);
   fetch(`/api/v1/garageItems/${id}`, {
     method: 'PATCH',
     headers: {
@@ -72,8 +73,8 @@ const appendItems = (garageItems) => {
         </div>
       </aside>
     `);
-    $(`#update-${garageItem.id}`).on('change', () => {
-      updateItem(garageItem.id, $(`#update-${garageItem.id}`).val());
+    $('.items').on('change', 'select', () => {
+      updateItem(garageItem.id, $('.update-cleanliness').val());
     });
   });
 };
