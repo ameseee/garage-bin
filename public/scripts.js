@@ -79,13 +79,14 @@ const appendItems = (garageItems) => {
 };
 
 const selectCurrentCleanliness = (newLevel) => {
-  levelsOfCleanliness = ['sparkling', 'dusty', 'rancid'];
+  let levelsOfCleanliness = ['sparkling', 'dusty', 'rancid'];
 
   return levelsOfCleanliness.filter((level) => level != newLevel)
 };
 
 const countByCleanliness = (garageItems, level) => {
   const filtered = garageItems.filter(item => item.cleanliness === level);
+
   return filtered.length;
 };
 
@@ -116,7 +117,7 @@ const addItem = (event) => {
     .then(response => {
       if (response.status === 201) { return response.json(); }
     })
-    .then(() => fetchItems())
+    .then(() => fetchAscendingItems())
     .catch((error) => {
       throw error;
     })
