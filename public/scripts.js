@@ -36,28 +36,52 @@ const unalphabetizeItems = (garageItems) => {
   countItems(sorted);
 };
 
+const updateItem = (id, newCleanliness) => {
+  fetch(`/api/v1/garageItems/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ cleanliness: newCleanliness }),
+  })
+    .then((response) => {
+      if (response.status === 204) {
+        return response.status;
+      }
+    })
+    .catch((error) => { throw error; });
+};
+
 const appendItems = (garageItems) => {
   $('.items').html('');
   return garageItems.forEach(garageItem => {
     $('.items').append(`
-      <aside class="item">
+      <aside class="item" id=${garageItem.id}>
         <h4 id="item-name">${garageItem.name}</h4>
         <div class="hidden">
           <p id="item-reason">${garageItem.reason}</p>
           <p id="item-cleanliness">${garageItem.cleanliness}</p>
           <div class="update-container">
             <p>Change cleanliness to: </p>
-            <select id="update-cleanliness" name="cleanliness">
-              <option value="sparkling">sparkling</option>
-              <option value="dusty">dusty</option>
-              <option value="rancid">rancid</option>
+            <select id="update-${garageItem.id} "class="update-cleanliness" name="cleanliness">
+              <option selected value=${garageItem.cleanliness}>${garageItem.cleanliness}</option>
+              <option>${selectCurrentCleanliness(garageItem.cleanliness)[0]}</option>
+              <option>${selectCurrentCleanliness(garageItem.cleanliness)[1]}</option>
             </select>
-            <button type="button" name="button" id="update-submit" >submit</button>
           </div>
         </div>
       </aside>
     `);
+    $(`#update-${garageItem.id}`).on('change', () => {
+      updateItem(garageItem.id, $(`#update-${garageItem.id}`).val());
+    });
   });
+};
+
+const selectCurrentCleanliness = (newLevel) => {
+  levelsOfCleanliness = ['sparkling', 'dusty', 'rancid'];
+
+  return levelsOfCleanliness.filter((level) => level != newLevel)
 };
 
 const countByCleanliness = (garageItems, level) => {
@@ -129,15 +153,9 @@ const toggleItemInfo = (event) => {
   $(event.target).next('div').toggleClass('hidden')
 };
 
-const updateItem = (event) => {
-
-  console.log($(event.target.previousElementSibling));
-};
-
 $('div').on('click', 'button', addItem);
 $('.remote').on('click', toggleDoor);
 $('#switch-list-order').on('click', toggleListOrder);
 $('.items').on('click', 'h4', () => toggleItemInfo(event));
-$('.items').on('click', '#update-submit', () => updateItem(event));
 
 fetchAscendingItems();
