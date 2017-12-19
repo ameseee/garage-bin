@@ -92,10 +92,10 @@ const countByCleanliness = (garageItems, level) => {
 };
 
 const countItems = (items) => {
-  $('#total-garage').text(`Items Hoarded: ${items.length}`);
-  $('#total-sparkling').text(`Sparkling Items: ${countByCleanliness(items, 'sparkling')}`);
-  $('#total-dusty').text(`Dusty Items: ${countByCleanliness(items, 'dusty')}`);
-  $('#total-rancid').text(`Rancid Items: ${countByCleanliness(items, 'rancid')}`);
+  $('.total-garage').text(`${items.length}`);
+  $('.total-sparkling').text(`${countByCleanliness(items, 'sparkling')}`);
+  $('.total-dusty').text(`${countByCleanliness(items, 'dusty')}`);
+  $('.total-rancid').text(`${countByCleanliness(items, 'rancid')}`);
 };
 
 const postHeader = (body) => {

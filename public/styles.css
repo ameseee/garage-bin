@@ -143,8 +143,49 @@ main {
 }
 
 #totals-title {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
+
+.total-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "garage sparkling dusty rancid" "totalG totalS totalD totalR";
+  text-align: center;
+}
+
+#total-garage {
+  grid-area: garage;
+}
+
+.total-garage {
+  grid-area: totalG;
+}
+
+#total-sparkling {
+  grid-area: sparkling;
+}
+
+.total-sparkling {
+  grid-area: totalS;
+}
+
+#total-dusty {
+  grid-area: dusty;
+}
+
+.total-dusty {
+  grid-area: totalD;
+}
+
+#total-rancid {
+  grid-area: rancid;
+}
+
+.total-rancid {
+  grid-area: totalR;
+}
+
 
 .form-container {
   width: 25%;
