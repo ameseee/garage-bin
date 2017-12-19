@@ -117,34 +117,6 @@ describe('API Routes', () => {
 
     });
 
-    describe('GET /api/v1/garageItems/:id', () => {
-      it('should retrieve a specific garage item', (done) => {
-        chai.request(server)
-          .get('/api/v1/garageItems/1')
-          .end((error, response) => {
-            response.should.have.status(200);
-            response.should.be.json;
-            response.body.should.be.a('array');
-            response.body.length.should.equal(1);
-            response.body.includes({ 'id': 1 });
-            response.body.includes({ 'name': "snowglobe" });
-            response.body.includes({ 'reason': "christmas gift from 1987" });
-            response.body.includes({ 'cleanliness': "dusty" });
-            done();
-          })
-      });
-
-      it('should return a 404 if path does not exist', (done) => {
-        chai.request(server)
-          .get('/api/v1/sadness')
-          .end((error, response) => {
-            response.should.have.status(404);
-            done();
-          })
-      });
-
-    });
-
     describe('PATCH /api/v1/garageItems/:id', () => {
       it('should be able to update the body of a garage item', (done) => {
         chai.request(server)

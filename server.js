@@ -54,16 +54,6 @@ app.post('/api/v1/garageItems', (request, response) => {
     .catch((error) => response.status(500).json({ error }));
 });
 
-app.get('/api/v1/garageItems/:id', (request, response) => {
-  const { id } = request.params;
-
-  database('garageItems').where('id', id).select()
-    .then((garageItem) => {
-      return response.status(200).json(garageItem);
-    })
-    .catch((error) => response.status(500).json({ error }));
-});
-
 app.patch('/api/v1/garageItems/:id', (request, response) => {
   const { id } = request.params;
   const itemUpdate = request.body;
