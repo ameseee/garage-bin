@@ -113,22 +113,22 @@ const postHeader = (body) => {
 }
 
 const addItem = (event) => {
-    event.preventDefault();
-    let name = $('#new-name').val();
-    let reason = $('#new-reason').val();
-    let cleanliness = $('#new-cleanliness option:selected').text();
+  event.preventDefault();
+  let name = $('#new-name').val();
+  let reason = $('#new-reason').val();
+  let cleanliness = $('#new-cleanliness option:selected').text();
 
-    fetch('/api/v1/garageItems', postHeader({ name, reason, cleanliness }))
-    .then(response => {
-      if (response.status === 201) { return response.json(); }
-    })
-    .then(() => fetchAscendingItems())
-    .catch((error) => {
-      throw error;
-    })
+  fetch('/api/v1/garageItems', postHeader({ name, reason, cleanliness }))
+  .then(response => {
+    if (response.status === 201) { return response.json(); }
+  })
+  .then(() => fetchAscendingItems())
+  .catch((error) => {
+    throw error;
+  })
 
-    $('#new-name').val('');
-    $('#new-reason').val('');
+  $('#new-name').val('');
+  $('#new-reason').val('');
 };
 
 const toggleDoor = () => {
