@@ -37,7 +37,6 @@ const unalphabetizeItems = (garageItems) => {
 };
 
 const updateItem = (id, newCleanliness) => {
-  console.log(id, newCleanliness);
   fetch(`/api/v1/garageItems/${id}`, {
     method: 'PATCH',
     headers: {
@@ -49,6 +48,11 @@ const updateItem = (id, newCleanliness) => {
       if (response.status === 204) {
         return response.status;
       }
+    })
+    .then(() => {
+      fetchAscendingItems();
+      let moreInfo = $(`#${id}`).find('div')[0];
+      $(moreInfo).removeClass('hidden');
     })
     .catch((error) => { throw error; });
 };
@@ -109,22 +113,22 @@ const postHeader = (body) => {
 }
 
 const addItem = (event) => {
-    event.preventDefault();
-    let name = $('#new-name').val();
-    let reason = $('#new-reason').val();
-    let cleanliness = $('#new-cleanliness option:selected').text();
+  event.preventDefault();
+  let name = $('#new-name').val();
+  let reason = $('#new-reason').val();
+  let cleanliness = $('#new-cleanliness option:selected').text();
 
-    fetch('/api/v1/garageItems', postHeader({ name, reason, cleanliness }))
-    .then(response => {
-      if (response.status === 201) { return response.json(); }
-    })
-    .then(() => fetchAscendingItems())
-    .catch((error) => {
-      throw error;
-    })
+  fetch('/api/v1/garageItems', postHeader({ name, reason, cleanliness }))
+  .then(response => {
+    if (response.status === 201) { return response.json(); }
+  })
+  .then(() => fetchAscendingItems())
+  .catch((error) => {
+    throw error;
+  })
 
-    $('#new-name').val('');
-    $('#new-reason').val('');
+  $('#new-name').val('');
+  $('#new-reason').val('');
 };
 
 const toggleDoor = () => {
