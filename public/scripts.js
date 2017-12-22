@@ -37,7 +37,6 @@ const unalphabetizeItems = (garageItems) => {
 };
 
 const updateItem = (id, newCleanliness) => {
-  console.log(id, newCleanliness);
   fetch(`/api/v1/garageItems/${id}`, {
     method: 'PATCH',
     headers: {
@@ -49,6 +48,11 @@ const updateItem = (id, newCleanliness) => {
       if (response.status === 204) {
         return response.status;
       }
+    })
+    .then(() => {
+      fetchAscendingItems();
+      let moreInfo = $(`#${id}`).find('div')[0];
+      $(moreInfo).removeClass('hidden');
     })
     .catch((error) => { throw error; });
 };
