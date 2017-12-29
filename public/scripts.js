@@ -77,11 +77,14 @@ const appendItems = (garageItems) => {
         </div>
       </aside>
     `);
-    $('.items').on('change', 'select', () => {
-      updateItem(garageItem.id, $('.update-cleanliness').val());
-    });
   });
 };
+
+const updateCleanliness = (event) => {
+  garageItemId = (event.target).closest('.item').id;
+  newCleanliness = $(event.target).val();
+  updateItem(garageItemId, newCleanliness)
+}
 
 const selectCurrentCleanliness = (newLevel) => {
   let levelsOfCleanliness = ['sparkling', 'dusty', 'rancid'];
@@ -163,5 +166,6 @@ $('div').on('click', 'button', addItem);
 $('.remote').on('click', toggleDoor);
 $('#switch-list-order').on('click', toggleListOrder);
 $('.items').on('click', 'h4', () => toggleItemInfo(event));
+$('.items').on('change', 'select', (event) => updateCleanliness(event));
 
 fetchAscendingItems();
